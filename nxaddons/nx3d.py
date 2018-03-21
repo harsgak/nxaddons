@@ -55,8 +55,7 @@ def draw_nxgraph3D(G, pos=None, figtitle=None, ax=None, **kwargs):
 draw_graph=draw_nxgraph3D
 
 
-teststr_draw_graph= """
-                    G=nx3d.nx.hypercube_graph(4)
-                    fig1,ax1 = draw_graph(G, pos=nx3d.np.random.random(size=(10,3)), figtitle='4D-Hypercube (Random-layout)')
-                    fig2,ax2 = draw_graph(G, pos=None, figtitle='4D-Hypercube (Spring-layout)', show=True)
-                    """
+teststr_draw_graph = "\n".join(["G=nx3d.nx.hypercube_graph(4)", 
+    "fig1,ax1 = nx3d.draw_graph(G, pos=nx3d.np.random.random(size=(len(G),3)), figtitle='4D-Hypercube (Random-layout)')",
+    "fig2,ax2 = nx3d.draw_graph(G, pos=None, figtitle='4D-Hypercube (Spring-layout)', show=True)"
+    ])
