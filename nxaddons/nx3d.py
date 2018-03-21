@@ -47,3 +47,12 @@ def draw_nxgraph3D(G, pos=None, figtitle=None, ax=None, **kwargs):
     if kwargs.get('show',False): plt.show()
     
     return fig,ax
+
+draw_graph=draw_nxgraph3D
+
+
+teststr_draw_graph= """
+                    G=nx.hypercube_graph(4)
+                    fig1,ax1 = draw_nxgraph3D(G, pos=np.random.random(size=(10,3)), figtitle='4D Hypercube (Random-layout)')
+                    fig2,ax2 = draw_nxgraph3D(G, pos=None, figtitle='4D-Hypercube (Spring-layout)', show=True)
+                    """
