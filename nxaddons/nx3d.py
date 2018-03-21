@@ -1,3 +1,7 @@
+import numpy as np
+import networkx as nx
+import matplotlib.pyplot as plt
+
 def draw_nxgraph3D(G, pos=None, figtitle=None, ax=None, **kwargs):
     #pos is an Nx3 array (3D positions of sorted nodes)
     #layout is a dict with node keys and pos-vector(3D) values
@@ -52,7 +56,7 @@ draw_graph=draw_nxgraph3D
 
 
 teststr_draw_graph= """
-                    G=nx.hypercube_graph(4)
-                    fig1,ax1 = draw_nxgraph3D(G, pos=np.random.random(size=(10,3)), figtitle='4D Hypercube (Random-layout)')
-                    fig2,ax2 = draw_nxgraph3D(G, pos=None, figtitle='4D-Hypercube (Spring-layout)', show=True)
+                    G=nx3d.nx.hypercube_graph(4)
+                    fig1,ax1 = draw_graph(G, pos=nx3d.np.random.random(size=(10,3)), figtitle='4D-Hypercube (Random-layout)')
+                    fig2,ax2 = draw_graph(G, pos=None, figtitle='4D-Hypercube (Spring-layout)', show=True)
                     """
