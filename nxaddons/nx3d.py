@@ -1,4 +1,4 @@
-def draw_nxgraph3D(G, pos=None, figtitle=None, ax=None):
+def draw_nxgraph3D(G, pos=None, figtitle=None, ax=None, **kwargs):
     #pos is an Nx3 array (3D positions of sorted nodes)
     #layout is a dict with node keys and pos-vector(3D) values
     import numpy as np
@@ -44,6 +44,6 @@ def draw_nxgraph3D(G, pos=None, figtitle=None, ax=None):
         edgeline.set_3d_properties([zs[i],zs[j]])
 
     #plt.savefig(exportDir+'time-evolution-hd.svg', dpi=256);
-    #plt.show()
+    if kwargs.get('show',False): plt.show()
     
     return fig,ax
