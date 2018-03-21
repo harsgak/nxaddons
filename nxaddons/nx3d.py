@@ -1,5 +1,5 @@
 def draw_nxgraph3D(G, pos=None, figtitle=None, ax=None):
-    #pos is an Nx3 array (3D positions of nodes)
+    #pos is an Nx3 array (3D positions of sorted nodes)
     #layout is a dict with node keys and pos-vector(3D) values
     import numpy as np
     if pos is None:
@@ -26,7 +26,9 @@ def draw_nxgraph3D(G, pos=None, figtitle=None, ax=None):
         fig = ax.get_figure()
     
     #Draw graph
-    ax.scatter(xs=pos[:,0],ys=pos[:,1],zs=pos[:,2], s=22, c='red')
+    xs,ys,zs=pos[:,0],pos[:,1],pos[:,2]
+    node2index = {node:index for index,node in enumerate(sorted(G.nodes()))}
+    ax.scatter(xs=xs,ys=ys,zs=zs, s=22, c='red')
     def getEmptyEdgelines(n):
         i = 0
         while i < n:
@@ -37,9 +39,9 @@ def draw_nxgraph3D(G, pos=None, figtitle=None, ax=None):
     edgelines = getEmptyEdgelines(len(G.edges()))
     for edge, edgeline in zip(G.edges(),edgelines):
         a,b = edge
-        xs,ys,zs=pos[:,0],pos[:,1],pos[:,2]
-        edgeline.set_data([xs[a], xs[b]],[ys[a], ys[b]] )
-        edgeline.set_3d_properties([zs[a],zs[b]])
+        i,j = node2index[a], node2index[b]
+        edgeline.set_data([xs[i], xs[j]],[ys[i], ys[j]] )
+        edgeline.set_3d_properties([zs[i],zs[j]])
 
     #plt.savefig(exportDir+'time-evolution-hd.svg', dpi=256);
     #plt.show()
