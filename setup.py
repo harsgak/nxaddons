@@ -1,9 +1,9 @@
 from setuptools import setup
 
 setup(name='nxaddons',
-      version='0.0.1',
+      version='0.0.2',
       description='Extended tools for NetworkX package',
-      url='https://gist.github.com/harsgak/37e88b53cf0f3edf4ccf90b5af371bad',
+      url='https://github.com/harsgak/nxaddons',
       author='harsgak',
       author_email='harsgak@yahoo.com',
       license='MIT',
